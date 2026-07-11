@@ -32,12 +32,20 @@ useEffect(() => {
   };
 
   return (
-    <section style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
+    <section
+  style={{
+    width: "100%",
+    maxWidth: "100vw",
+    position: "relative",
+    overflowX: "hidden",
+    overflowY: "hidden",
+  }}
+>
      <div
   style={{
     display: "flex",
     flexDirection: mobile ? "column" : "row",
-    minHeight: "100vh",
+    minHeight: mobile ? "auto" : "100vh",
     width: "100%",
   }}
 >
@@ -45,13 +53,13 @@ useEffect(() => {
         <div style={{
           width: mobile ? "100%" : "65%",
           display: 'flex',
-          justifyContent: 'flex-start',
+          justifyContent: mobile ? "center" : "flex-start",
           alignItems: 'center',
           padding: mobile ? "30px 20px" : "0 80px", 
           position: 'relative',
           zIndex: 2
         }}>
-          <div style={{ textAlign: 'left', width: '100%', color: '#333', marginTop: mobile ? "20px" : "-50px" }}>
+          <div style={{textAlign: mobile ? "center" : "left", width: '100%', color: '#333', marginTop: mobile ? "20px" : "-50px" }}>
             
             
             <h1 style={{
@@ -63,9 +71,12 @@ useEffect(() => {
               lineHeight: '1.2',
               fontFamily: '"Poppins", sans-serif'
             }}>
-              The only platform that <br />
-              <strong style={{ color: '#008B8B' }}>guarantees</strong> real-world work <br />
-              experience across the globe
+              The only platform that
+{!mobile && <br />}
+<strong style={{ color: "#008B8B" }}>guarantees</strong>
+real-world work
+{!mobile && <br />}
+experience across the globe
             </h1>
 
             
@@ -103,7 +114,7 @@ useEffect(() => {
         <div
   style={{
     width: mobile ? "100%" : "35%",
-    height: mobile ? "380px" : "100vh",
+    height: mobile ? "340px" : "100vh",
     position: "relative",
     overflow: "visible",
   }}
@@ -130,8 +141,8 @@ height: mobile ? "320px" : "700px",
               position: 'absolute',
               bottom: '0',
               right: '0',
-              width: '100%',
-              height: '100%',
+              width: mobile ? "100%" : "100%",
+height: mobile ? "80%" : "100%",
               zIndex: 0,
             }}
           >
@@ -205,7 +216,10 @@ height: mobile ? "90%" : "97%", zIndex: 1 }}>
               src="/image.png"
               alt="Girl studying"
               fill
-              style={{ objectFit: 'contain' }}
+             style={{
+  objectFit: "contain",
+  objectPosition: mobile ? "center bottom" : "center",
+}}
             />
           </div>
         </div>
