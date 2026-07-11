@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
 import { FaGraduationCap, FaHandsHelping, FaCalendarAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from "next/link";
 
 
 export default function Hero() {
+  const [mobile, setMobile] = useState(false);
+
+useEffect(() => {
+  const checkScreen = () => {
+    setMobile(window.innerWidth <= 768);
+  };
+
+  checkScreen();
+  window.addEventListener("resize", checkScreen);
+
+  return () => window.removeEventListener("resize", checkScreen);
+}, []);
   const buttonStyle = {
-    padding: '22px 60px', 
-    fontSize: '1.35rem', 
+    padding: mobile ? "18px 20px" : "22px 60px", 
+    fontSize: mobile ? "1rem" : "1.35rem", 
     fontWeight: '700',
     borderRadius: '12px',
     display: 'flex',
@@ -14,29 +27,37 @@ export default function Hero() {
     justifyContent: 'center',
     cursor: 'pointer',
     gap: '10px',
-    minWidth: '220px', 
+    minWidth: mobile ? "100%" : "220px" ,
     height: '60px'      
   };
 
   return (
     <section style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
-
+     <div
+  style={{
+    display: "flex",
+    flexDirection: mobile ? "column" : "row",
+    minHeight: "100vh",
+    width: "100%",
+  }}
+>
         
         <div style={{
-          width: '65%',
+          width: mobile ? "100%" : "65%",
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
-          padding: '0 80px', 
+          padding: mobile ? "30px 20px" : "0 80px", 
           position: 'relative',
           zIndex: 2
         }}>
-          <div style={{ textAlign: 'left', width: '100%', color: '#333', marginTop: '-50px' }}>
+          <div style={{ textAlign: 'left', width: '100%', color: '#333', marginTop: mobile ? "20px" : "-50px" }}>
             
             
             <h1 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: mobile
+  ? "2rem"
+  : "clamp(2.8rem,5vw,4rem)",
               fontWeight: '900',
               marginBottom: '30px',
               lineHeight: '1.2',
@@ -48,13 +69,19 @@ export default function Hero() {
             </h1>
 
             
-            <p style={{ fontSize: '1.75rem', fontWeight: '500', marginBottom: '40px', color: '#666' }}>
+            <p style={{ fontSize: mobile ? "1.1rem" : "1.75rem", fontWeight: '500', marginBottom: '40px', color: '#666' }}>
               Shaping tomorrow’s workforce: one internship at a time
             </p>
 
            
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', gap: '20px' }}>
+              <div
+  style={{
+    display: "flex",
+    flexDirection: mobile ? "column" : "row",
+    gap: "20px",
+  }}
+>
                 <Link href="https://www.virtualinternships.com/companies/" style={{ ...buttonStyle, backgroundColor: '#FF8C00', color: 'white', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <FaGraduationCap /> Company: Hire
                 </Link>
@@ -63,7 +90,7 @@ export default function Hero() {
                   <FaHandsHelping /> Educators: Partner
                 </Link>
               </div>
-                <Link href="https://www.virtualinternships.com/interns/" style={{ ...buttonStyle, backgroundColor: '#008B8B', color: 'white', border: 'none', alignSelf: 'flex-start', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Link href="https://www.virtualinternships.com/interns/" style={{ ...buttonStyle, backgroundColor: '#008B8B', color: 'white', border: 'none', alignSelf: mobile ? "stretch" : "flex-start", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <FaCalendarAlt /> Interns: Apply
                 </Link>
             </div>
@@ -73,15 +100,22 @@ export default function Hero() {
 
 
         
-        <div style={{ width: '35%', height: '100vh', position: 'relative', overflow: 'visible' }}>
+        <div
+  style={{
+    width: mobile ? "100%" : "35%",
+    height: mobile ? "380px" : "100vh",
+    position: "relative",
+    overflow: "visible",
+  }}
+>
           
         
           <div style={{
             position: 'absolute',
-            bottom: '200px',
-            left: '-110px',
-            width: '700px',
-            height: '700px',
+            bottom: mobile ? "60px" : "200px",
+left: mobile ? "-120px" : "-110px",
+width: mobile ? "320px" : "700px",
+height: mobile ? "320px" : "700px",
             background: 'radial-gradient(circle at center, #008B8B 0%, #00CED1 100%)',
             borderRadius: '50%',
             zIndex: 0,
@@ -127,9 +161,9 @@ export default function Hero() {
     style={{
       position: "absolute",
       bottom: "50px",
-      right: "-200px",
-      width: "400px",
-      height: "400px",
+      width: mobile ? "180px" : "400px",
+height: mobile ? "180px" : "400px",
+right: mobile ? "-60px" : "-200px",
       border: "8px solid orange", 
       borderRadius: "50%",
     }}
@@ -139,10 +173,10 @@ export default function Hero() {
   <div
     style={{
       position: "absolute",
-      bottom: "490px",
-      right: "160px",
-      width: "400px",
-      height: "400px",
+      bottom: mobile ? "220px" : "490px",
+right: mobile ? "30px" : "160px",
+width: mobile ? "180px" : "400px",
+height: mobile ? "180px" : "400px",
       border: "8px solid orange",
       borderRadius: "50%",
     }}
@@ -152,10 +186,10 @@ export default function Hero() {
   <div
     style={{
       position: "absolute",
-      bottom: "800px",
-      right: "-75px",
-      width: "110px",
-      height: "110px",
+      bottom: mobile ? "360px" : "800px",
+right: mobile ? "20px" : "-75px",
+width: mobile ? "70px" : "110px",
+height: mobile ? "70px" : "110px",
       border: "5px solid orange",
       borderRadius: "50%",
     }}
@@ -165,7 +199,8 @@ export default function Hero() {
 
 
          
-          <div style={{ position: 'absolute', bottom: '0', right: '0', width: '88%', height: '97%', zIndex: 1 }}>
+          <div style={{ position: 'absolute', bottom: '0', right: '0', width: mobile ? "100%" : "88%",
+height: mobile ? "90%" : "97%", zIndex: 1 }}>
             <Image
               src="/image.png"
               alt="Girl studying"
