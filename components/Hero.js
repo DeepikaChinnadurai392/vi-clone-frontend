@@ -30,7 +30,7 @@ export default function Hero() {
         style={{
           display: "flex",
           flexDirection: mobile ? "column" : "row",
-          minHeight: mobile ? "auto" : "100vh",
+          minHeight: "calc(100vh - 90px)",
           width: "100%",
         }}
       >
@@ -42,12 +42,12 @@ export default function Hero() {
             display: "flex",
             alignItems: "center",
             justifyContent: mobile ? "center" : "flex-start",
-            padding: mobile ? "40px 22px" : "0 80px",
+            padding: mobile ? "40px 22px" : "40px 80px",
           }}
         >
           <div
             style={{
-              marginTop: mobile ? "20px" : "-40px",
+              marginTop: mobile ? "20px" : "20px",
               color: "#333",
               width: "100%",
               textAlign: mobile ? "center" : "left",
