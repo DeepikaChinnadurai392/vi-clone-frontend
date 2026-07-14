@@ -8,12 +8,17 @@ export default function Navbar() {
       <div className="navbar-logo">
         <Link href="/" aria-label="Homepage">
           <Image
-            src="/mainlogo.png"
-            alt="Virtual Internships main logo"
-            width={300}
-            height={250}
-            priority
-          />
+  src="/mainlogo.png"
+  alt="Virtual Internships main logo"
+  width={300}
+  height={250}
+  priority
+  style={{
+    width: "100%",
+    maxWidth: "300px",
+    height: "auto",
+  }}
+/>
         </Link>
       </div>
 

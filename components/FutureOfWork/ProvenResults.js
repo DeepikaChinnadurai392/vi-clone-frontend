@@ -49,13 +49,14 @@ export default function ProvenResults() {
         textAlign: "center",
         padding: mobile ? "70px 20px" : "150px 25px",
         boxSizing: "border-box",
+        marginTop: mobile ? "20px" : "40px",
       }}
     >
       <h2
         style={{
           fontSize: mobile ? "2rem" : "clamp(2.5rem,5vw,3.5rem)",
           fontWeight: "900",
-          marginBottom: mobile ? "45px" : "60px",
+          marginBottom: mobile ? "35px" : "40px",
           lineHeight: "1.3",
         }}
       >
@@ -67,27 +68,26 @@ export default function ProvenResults() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "stretch",
           flexWrap: "wrap",
-          gap: mobile ? "35px" : "90px",
+          gap: mobile ? "35px" : "110px",
+          padding: "0 20px",
         }}
       >
         {results.map((item, index) => (
           <div
             key={index}
             style={{
-              width: mobile ? "100%" : "250px",
-              maxWidth: "300px",
+              width: mobile ? "100%" : "auto",
+              maxWidth: mobile ? "280px" : "none",
               textAlign: "center",
             }}
           >
             <div
               style={{
-                fontSize: mobile ? "3rem" : "5.5rem",
+                fontSize: mobile ? "3.3rem" : "5.5rem",
                 fontWeight: "900",
                 color: item.color,
                 lineHeight: "1",
-                marginBottom: "15px",
               }}
             >
               {item.number}
@@ -95,10 +95,10 @@ export default function ProvenResults() {
 
             <div
               style={{
-                fontSize: mobile ? "1.4rem" : "2.2rem",
+                fontSize: mobile ? "1.4rem" : "2.5rem",
                 fontWeight: "700",
                 color: "#333",
-                marginBottom: "10px",
+                marginTop: "10px",
               }}
             >
               {item.title}
@@ -106,8 +106,10 @@ export default function ProvenResults() {
 
             <div
               style={{
-                fontSize: mobile ? "1rem" : "1.5rem",
+                fontSize: mobile ? "1rem" : "1.8rem",
+                fontWeight: "400",
                 color: "#555",
+                marginTop: "8px",
                 lineHeight: "1.6",
               }}
             >

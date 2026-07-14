@@ -21,238 +21,260 @@ export default function Hero() {
     <section
       style={{
         width: "100%",
-        overflow: "hidden",
+        overflowX: "hidden",
+        overflowY: "hidden",
         background: "#fff",
       }}
     >
-      {/* Scale whole desktop layout on mobile */}
       <div
         style={{
-          transform: mobile ? "scale(0.42)" : "scale(1)",
-          transformOrigin: "top left",
-          width: mobile ? "238%" : "100%",
-          height: mobile ? "720px" : "100vh",
+          display: "flex",
+          flexDirection: mobile ? "column" : "row",
+          minHeight: mobile ? "auto" : "100vh",
+          width: "100%",
         }}
       >
+        {/* LEFT SIDE */}
+
         <div
           style={{
+            width: mobile ? "100%" : "65%",
             display: "flex",
-            minHeight: "100vh",
+            alignItems: "center",
+            justifyContent: mobile ? "center" : "flex-start",
+            padding: mobile ? "40px 22px" : "0 80px",
           }}
         >
-          {/* LEFT SIDE */}
           <div
             style={{
-              width: "65%",
-              display: "flex",
-              alignItems: "center",
-              padding: "0 80px",
+              marginTop: mobile ? "20px" : "-40px",
+              color: "#333",
+              width: "100%",
+              textAlign: mobile ? "center" : "left",
             }}
           >
-            <div
+            <h1
               style={{
-                marginTop: "-40px",
-                color: "#333",
+                fontSize: mobile ? "2.2rem" : "4rem",
+                lineHeight: "1.2",
+                fontWeight: "900",
+                marginBottom: "30px",
+                fontFamily: "Poppins,sans-serif",
               }}
             >
-              <h1
-                style={{
-                  fontSize: "4rem",
-                  lineHeight: "1.2",
-                  fontWeight: "900",
-                  marginBottom: "30px",
-                  fontFamily: "Poppins,sans-serif",
-                }}
-              >
-                The only platform that
-                <br />
-                <span style={{ color: "#008B8B" }}>guarantees</span>
-                real-world work
-                <br />
-                experience across the globe
-              </h1>
+              The only platform that
+              {!mobile && <br />}
+              <span style={{ color: "#008B8B" }}>guarantees</span>
+              real-world work
+              {!mobile && <br />}
+              experience across the globe
+            </h1>
 
-              <p
-                style={{
-                  fontSize: "1.7rem",
-                  color: "#666",
-                  marginBottom: "40px",
-                }}
-              >
-                Shaping tomorrow's workforce: one internship at a time
-              </p>
+            <p
+              style={{
+                fontSize: mobile ? "1.1rem" : "1.7rem",
+                color: "#666",
+                marginBottom: "35px",
+              }}
+            >
+              Shaping tomorrow's workforce: one internship at a time
+            </p>
 
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: mobile ? "column" : "row",
                   gap: "20px",
                 }}
               >
-                <div
+                <Link
+                  href="https://www.virtualinternships.com/companies/"
                   style={{
-                    display: "flex",
-                    gap: "20px",
-                  }}
-                >
-                  <Link
-                    href="https://www.virtualinternships.com/companies/"
-                    style={{
-                      background: "#FF8C00",
-                      color: "#fff",
-                      padding: "22px 60px",
-                      borderRadius: "12px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                      fontWeight: "700",
-                      fontSize: "1.3rem",
-                    }}
-                  >
-                    <FaGraduationCap />
-                    Company: Hire
-                  </Link>
-
-                  <Link
-                    href="https://www.virtualinternships.com/universities/"
-                    style={{
-                      background: "#fff",
-                      color: "#333",
-                      border: "2px solid #333",
-                      padding: "22px 60px",
-                      borderRadius: "12px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                      fontWeight: "700",
-                      fontSize: "1.3rem",
-                    }}
-                  >
-                    <FaHandsHelping />
-                    Educators: Partner
-                  </Link>
-                </div>
-                                <Link
-                  href="https://www.virtualinternships.com/interns/"
-                  style={{
-                    background: "#008B8B",
+                    background: "#FF8C00",
                     color: "#fff",
-                    padding: "22px 60px",
+                    padding: mobile ? "18px" : "22px 60px",
                     borderRadius: "12px",
                     display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                     gap: "10px",
-                    width: "fit-content",
                     fontWeight: "700",
-                    fontSize: "1.3rem",
+                    fontSize: mobile ? "1rem" : "1.3rem",
+                    width: mobile ? "100%" : "auto",
                   }}
                 >
-                  <FaCalendarAlt />
-                  Interns: Apply
+                  <FaGraduationCap />
+                  Company: Hire
+                </Link>
+
+                <Link
+                  href="https://www.virtualinternships.com/universities/"
+                  style={{
+                    background: "#fff",
+                    color: "#333",
+                    border: "2px solid #333",
+                    padding: mobile ? "18px" : "22px 60px",
+                    borderRadius: "12px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontWeight: "700",
+                    fontSize: mobile ? "1rem" : "1.3rem",
+                    width: mobile ? "100%" : "auto",
+                  }}
+                >
+                  <FaHandsHelping />
+                  Educators: Partner
                 </Link>
               </div>
-            </div>
-          </div>
 
-          {/* RIGHT SIDE */}
-          <div
-            style={{
-              width: "35%",
-              height: "100vh",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            {/* Background Circle */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "180px",
-                left: "-110px",
-                width: "700px",
-                height: "700px",
-                borderRadius: "50%",
-                background:
-                  "radial-gradient(circle,#00CED1 0%,#008B8B 100%)",
-                zIndex: 0,
-              }}
-            />
-
-            {/* Dark Shape */}
-            <svg
-              viewBox="0 0 800 1200"
-              preserveAspectRatio="none"
-              style={{
-                position: "absolute",
-                right: 0,
-                bottom: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: 0,
-              }}
-            >
-              <path
-                d="M800 0
-                   C520 140 580 150 480 420
-                   C420 600 580 700 340 900
-                   C200 1020 150 1080 0 1100
-                   L900 1100
-                   L1000 0 Z"
-                fill="#062b2e"
-              />
-            </svg>
-
-            {/* Orange Circle 1 */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "40px",
-                right: "-180px",
-                width: "400px",
-                height: "400px",
-                border: "8px solid orange",
-                borderRadius: "50%",
-                zIndex: 0,
-              }}
-            />
-
-            {/* Orange Circle 2 */}
-            <div
-              style={{
-                position: "absolute",
-                top: "120px",
-                right: "150px",
-                width: "360px",
-                height: "360px",
-                border: "8px solid orange",
-                borderRadius: "50%",
-                zIndex: 0,
-              }}
-            />
-                        {/* Hero Image */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "0",
-                right: "0",
-                width: "88%",
-                height: "97%",
-                zIndex: 2,
-              }}
-            >
-              <Image
-                src="/image.png"
-                alt="Girl studying"
-                fill
+              <Link
+                href="https://www.virtualinternships.com/interns/"
                 style={{
-                  objectFit: "contain",
-                  objectPosition: "center",
+                  background: "#008B8B",
+                  color: "#fff",
+                  padding: mobile ? "18px" : "22px 60px",
+                  borderRadius: "12px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px",
+                  width: mobile ? "100%" : "fit-content",
+                  fontWeight: "700",
+                  fontSize: mobile ? "1rem" : "1.3rem",
+                  alignSelf: mobile ? "stretch" : "flex-start",
                 }}
-                priority
-              />
+              >
+                <FaCalendarAlt />
+                Interns: Apply
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE */}
+
+<div
+  style={{
+    width: mobile ? "100%" : "35%",
+    height: mobile ? "420px" : "100vh",
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  {/* Background Circle */}
+  <div
+    style={{
+      position: "absolute",
+      bottom: mobile ? "40px" : "180px",
+      left: mobile ? "-80px" : "-110px",
+      width: mobile ? "350px" : "700px",
+      height: mobile ? "350px" : "700px",
+      borderRadius: "50%",
+      background:
+        "radial-gradient(circle,#00CED1 0%,#008B8B 100%)",
+      zIndex: 0,
+    }}
+  />
+
+  {/* Dark Shape */}
+  <svg
+    viewBox="0 0 800 1200"
+    preserveAspectRatio="none"
+    style={{
+      position: "absolute",
+      right: 0,
+      bottom: 0,
+      width: "100%",
+      height: "100%",
+      zIndex: 0,
+    }}
+  >
+    <path
+      d="M800 0
+         C520 140 580 150 480 420
+         C420 600 580 700 340 900
+         C200 1020 150 1080 0 1100
+         L900 1100
+         L1000 0 Z"
+      fill="#062b2e"
+    />
+  </svg>
+
+  {/* Orange Circle 1 */}
+  <div
+    style={{
+      position: "absolute",
+      bottom: mobile ? "20px" : "40px",
+      right: mobile ? "-100px" : "-180px",
+      width: mobile ? "220px" : "400px",
+      height: mobile ? "220px" : "400px",
+      border: "8px solid orange",
+      borderRadius: "50%",
+      zIndex: 0,
+    }}
+  />
+
+  {/* Orange Circle 2 */}
+  <div
+    style={{
+      position: "absolute",
+      top: mobile ? "20px" : "120px",
+      right: mobile ? "40px" : "150px",
+      width: mobile ? "180px" : "360px",
+      height: mobile ? "180px" : "360px",
+      border: "8px solid orange",
+      borderRadius: "50%",
+      zIndex: 0,
+    }}
+  />
+
+  {/* Small Orange Circle */}
+  <div
+    style={{
+      position: "absolute",
+      top: mobile ? "10px" : "40px",
+      right: mobile ? "15px" : "-30px",
+      width: mobile ? "60px" : "110px",
+      height: mobile ? "60px" : "110px",
+      border: "5px solid orange",
+      borderRadius: "50%",
+      zIndex: 0,
+    }}
+  />
+
+  {/* Hero Image */}
+  <div
+    style={{
+      position: "absolute",
+      bottom: "0",
+      right: "0",
+      width: mobile ? "100%" : "88%",
+      height: mobile ? "95%" : "97%",
+      zIndex: 2,
+    }}
+  >
+    <Image
+      src="/image.png"
+      alt="Girl studying"
+      fill
+      priority
+      style={{
+        objectFit: "contain",
+        objectPosition: mobile ? "center bottom" : "center",
+      }}
+    />
+  </div>
+</div>
       </div>
     </section>
   );
