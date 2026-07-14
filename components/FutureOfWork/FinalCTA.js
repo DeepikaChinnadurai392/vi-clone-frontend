@@ -1,93 +1,114 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function FinalCTA() {
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section
       style={{
         width: "100%",
-        minHeight: "100vh",
+        minHeight: mobile ? "auto" : "100vh",
         display: "flex",
-        flexWrap: "nowrap", 
-        backgroundColor: "#c7d4d8ff",
-        padding: "0",       
-        margin: "0",       
-        boxSizing: "border-box",
+        flexDirection: mobile ? "column" : "row",
+        backgroundColor: "#c7d4d8",
+        overflow: "hidden",
       }}
     >
-      
+      {/* LEFT SIDE */}
       <div
         style={{
-          flex: 1,          
-          textAlign: "left",
-          padding: "150px",
-          minWidth: 0,     
+          width: mobile ? "100%" : "55%",
+          padding: mobile ? "40px 25px" : "120px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          zIndex: 2,
         }}
       >
         <h2
           style={{
-            fontSize: "clamp(2.8rem, 5vw, 3.5rem)",
+            fontSize: mobile ? "2.2rem" : "3.8rem",
             fontWeight: "900",
             color: "#004466",
-            marginBottom: "40px",
+            lineHeight: "1.2",
+            marginBottom: "25px",
           }}
         >
-          The only platform that <br />
-          <strong style={{ color: "#008B8B" }}>guarantees</strong> real-world work <br />
+          The only platform that
+          <br />
+          <span style={{ color: "#008B8B" }}>guarantees</span> real-world work
+          <br />
           experience across the globe
         </h2>
+
         <p
           style={{
-            fontSize: "1.8rem",
-            color: "#070606ff",
-            marginBottom: "40px",
+            fontSize: mobile ? "1.1rem" : "1.8rem",
+            color: "#222",
+            marginBottom: "35px",
+            lineHeight: "1.6",
           }}
         >
           Shaping tomorrow’s workforce: one internship at a time
         </p>
+
         <div
           style={{
             display: "flex",
-            gap: "20px",
-            flexWrap: "wrap",
+            flexDirection: mobile ? "column" : "row",
+            gap: "18px",
           }}
         >
           <button
             style={{
-              padding: "12px 25px",
-              fontSize: "1.8rem",
+              padding: mobile ? "16px" : "18px 35px",
+              fontSize: mobile ? "1rem" : "1.3rem",
               fontWeight: "700",
-              backgroundColor: "#dd8d16ff",
+              background: "#dd8d16",
               color: "#fff",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "10px",
               cursor: "pointer",
             }}
           >
             Company: Hire
           </button>
+
           <button
             style={{
-              padding: "12px 25px",
-              fontSize: "1.8rem",
+              padding: mobile ? "16px" : "18px 35px",
+              fontSize: mobile ? "1rem" : "1.3rem",
               fontWeight: "700",
-              backgroundColor: "#dfdad6ff",
-              color: "#1f1b1bff",
-              border: "none",
-              borderRadius: "8px",
+              background: "#ffffff",
+              color: "#222",
+              border: "2px solid #333",
+              borderRadius: "10px",
               cursor: "pointer",
             }}
           >
             Educators: Partner
           </button>
+
           <button
             style={{
-              padding: "12px 25px",
-              fontSize: "1.8rem",
+              padding: mobile ? "16px" : "18px 35px",
+              fontSize: mobile ? "1rem" : "1.3rem",
               fontWeight: "700",
-              backgroundColor: "#2b9486ff",
+              background: "#008B8B",
               color: "#fff",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "10px",
               cursor: "pointer",
             }}
           >
@@ -95,123 +116,117 @@ export default function FinalCTA() {
           </button>
         </div>
       </div>
-
-     
+            {/* RIGHT SIDE */}
       <div
         style={{
-          flex: 1,             
+          width: mobile ? "100%" : "45%",
+          minHeight: mobile ? "500px" : "100vh",
           position: "relative",
-          overflow: "visible",
-          minWidth: 0,
+          overflow: "hidden",
         }}
       >
-        
+        {/* Teal Background Circle */}
         <div
           style={{
             position: "absolute",
-            bottom: "200px",
-            left: "-110px",
-            width: "700px",
-            height: "700px",
-            background: "radial-gradient(circle at center, #008B8B 0%, #00CED1 100%)",
+            bottom: mobile ? "40px" : "180px",
+            left: mobile ? "-80px" : "-110px",
+            width: mobile ? "350px" : "700px",
+            height: mobile ? "350px" : "700px",
+            background:
+              "radial-gradient(circle at center,#008B8B 0%,#00CED1 100%)",
             borderRadius: "50%",
             zIndex: 0,
           }}
         />
-        
+
+        {/* Dark SVG Shape */}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 800 1200"
           preserveAspectRatio="xMidYMid slice"
           style={{
-            position: 'absolute',
-            bottom: '0',
-            right: '0',
-            width: '100%',
-            height: '100%',
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            width: "100%",
+            height: "100%",
             zIndex: 0,
           }}
         >
           <path
-            d="M800 0 
-               C520 140 580 150 480 420 
-               C420 600 580 700 340 900 
+            d="M800 0
+               C520 140 580 150 480 420
+               C420 600 580 700 340 900
                C200 1020 150 1080 0 1100
                L900 1100
-               L1000  Z"
-            fill="#044b41ff"
+               L1000 0 Z"
+            fill="#044b41"
           />
         </svg>
-      
-<div
-  style={{
-    position: "absolute",
-    bottom: "0",
-    right: "0",
-    width: "100%",
-    height: "100%",
-    zIndex: 0,
-  }}
->
- 
-  <div
-    style={{
-      position: "absolute",
-      bottom: "50px",
-      right: "-200px",
-      width: "400px",
-      height: "400px",
-      border: "8px solid orange", 
-      borderRadius: "50%",
-    }}
-  />
 
- 
-  <div
-    style={{
-      position: "absolute",
-      bottom: "500px",
-      right: "160px",
-      width: "400px",
-      height: "400px",
-      border: "8px solid orange",
-      borderRadius: "50%",
-    }}
-  />
+        {/* Orange Circle 1 */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: mobile ? "20px" : "50px",
+            right: mobile ? "-80px" : "-200px",
+            width: mobile ? "180px" : "400px",
+            height: mobile ? "180px" : "400px",
+            border: "6px solid orange",
+            borderRadius: "50%",
+            zIndex: 1,
+          }}
+        />
 
-  
-  <div
-    style={{
-      position: "absolute",
-      bottom: "800px",
-      right: "-75px",
-      width: "110px",
-      height: "110px",
-      border: "5px solid orange",
-      borderRadius: "50%",
-    }}
-  />
-</div>
+        {/* Orange Circle 2 */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: mobile ? "220px" : "500px",
+            right: mobile ? "60px" : "160px",
+            width: mobile ? "180px" : "400px",
+            height: mobile ? "180px" : "400px",
+            border: "6px solid orange",
+            borderRadius: "50%",
+            zIndex: 1,
+          }}
+        />
 
-
-      
+        {/* Small Orange Circle */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: mobile ? "340px" : "800px",
+            right: mobile ? "20px" : "-75px",
+            width: mobile ? "60px" : "110px",
+            height: mobile ? "60px" : "110px",
+            border: "4px solid orange",
+            borderRadius: "50%",
+            zIndex: 1,
+          }}
+        />
+                {/* Girl Image */}
         <div
           style={{
             position: "absolute",
             bottom: "0",
             right: "0",
-            width: "88%",
-            height: "97%",
-            zIndex: 1,
+            width: mobile ? "100%" : "88%",
+            height: mobile ? "90%" : "97%",
+            zIndex: 2,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
           }}
         >
           <img
             src="/image.png"
             alt="Girl studying"
             style={{
-              width: "100%",
+              width: mobile ? "85%" : "100%",
               height: "100%",
               objectFit: "contain",
+              objectPosition: mobile ? "center bottom" : "center",
             }}
           />
         </div>

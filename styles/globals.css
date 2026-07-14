@@ -1,217 +1,127 @@
-/* ============================= */
-/* Tailwind */
-/* ============================= */
-
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ============================= */
-/* Global */
-/* ============================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html,
-body{
-    width:100%;
-    overflow-x:hidden;
-    background:#fff;
-    color:#333;
-    line-height:1.6;
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-img{
-    max-width:100%;
-    height:auto;
-    display:block;
-}
+/* ===========================
+        NAVBAR
+=========================== */
 
-/* ============================= */
-/* Navbar */
-/* ============================= */
-
-.navbar{
-
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 40px;
-
-    background:#fff;
-
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
-
-    position:relative;
-
-    z-index:1000;
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
 .navbar-logo{
-
-    display:flex;
-
-    align-items:center;
-
-    flex-shrink:0;
-}
-
-.navbar-logo img{
-
-    width:220px;
-
-    height:auto;
+  display:flex;
+  align-items:center;
 }
 
 .navbar-links{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:28px;
-
-    flex:1;
-
-    margin:0 30px;
+  display:flex;
+  align-items:center;
+  gap:30px;
 }
 
 .dropdown{
-
-    position:relative;
+  position:relative;
 }
 
 .dropbtn{
-
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#333;
-
-    padding:8px;
-}
-
-.dropbtn:hover{
-
-    color:#008B8B;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:23px;
+  font-weight:600;
+  color:#333;
+  padding:8px;
 }
 
 .dropdown-content{
-
-    position:absolute;
-
-    top:100%;
-
-    left:0;
-
-    min-width:220px;
-
-    background:#fff;
-
-    border-radius:8px;
-
-    display:none;
-
-    flex-direction:column;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
-
-    z-index:999;
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  min-width:220px;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  border-radius:8px;
+  overflow:hidden;
+  z-index:999;
 }
 
 .dropdown-content a{
-
-    padding:12px 18px;
-
-    font-size:15px;
-
-    color:#333;
+  display:block;
+  padding:12px 18px;
+  font-size:16px;
+  color:#333;
 }
 
 .dropdown-content a:hover{
-
-    background:#f3f3f3;
+  background:#f4f4f4;
 }
 
 .dropdown:hover .dropdown-content{
-
-    display:flex;
-}
-
-/* ============================= */
-/* Login Button */
-/* ============================= */
-
-.navbar-login{
-
-    flex-shrink:0;
+  display:block;
 }
 
 .login-button{
-
-    background:#ff8800;
-
-    color:white;
-
-    border:none;
-
-    padding:14px 28px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    transition:.3s;
+  padding:14px 28px;
+  border:none;
+  background:#ff8800;
+  color:white;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  font-weight:600;
 }
 
 .login-button:hover{
-
-    background:#ff6600;
+  background:#ff6a00;
 }
 
-/* ============================= */
-/* Tablet */
-/* ============================= */
+/* ===========================
+        TABLET
+=========================== */
 
-@media(max-width:1100px){
+@media (max-width:1024px){
 
 .navbar{
 
-padding:18px 25px;
+padding:18px 20px;
 
 }
 
 .navbar-links{
 
-gap:18px;
-
-margin:0 15px;
+gap:20px;
 
 }
 
@@ -223,35 +133,25 @@ font-size:16px;
 
 .login-button{
 
-padding:12px 20px;
-
-font-size:15px;
-
-}
-
-.navbar-logo img{
-
-width:180px;
+padding:12px 22px;
 
 }
 
 }
 
-/* ============================= */
-/* Mobile */
-/* ============================= */
+/* ===========================
+        MOBILE
+=========================== */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .navbar{
 
 flex-direction:column;
 
-align-items:center;
+padding:15px;
 
-padding:18px;
-
-gap:18px;
+gap:20px;
 
 }
 
@@ -263,7 +163,9 @@ justify-content:center;
 
 .navbar-logo img{
 
-width:170px;
+width:180px !important;
+
+height:auto !important;
 
 }
 
@@ -271,11 +173,13 @@ width:170px;
 
 width:100%;
 
+display:flex;
+
 flex-direction:column;
 
-gap:14px;
+align-items:center;
 
-margin:0;
+gap:12px;
 
 }
 
@@ -283,17 +187,17 @@ margin:0;
 
 width:100%;
 
+text-align:center;
+
 }
 
 .dropbtn{
 
 width:100%;
 
-text-align:center;
-
 font-size:18px;
 
-padding:10px;
+padding:12px;
 
 }
 
@@ -301,29 +205,21 @@ padding:10px;
 
 position:static;
 
-display:none;
-
-width:100%;
+display:block;
 
 box-shadow:none;
 
-border:1px solid #eee;
+border-radius:0;
+
+background:#fafafa;
 
 margin-top:5px;
-
-}
-
-.dropdown:hover .dropdown-content{
-
-display:flex;
 
 }
 
 .dropdown-content a{
 
 font-size:15px;
-
-text-align:center;
 
 padding:10px;
 
@@ -339,7 +235,7 @@ width:100%;
 
 width:100%;
 
-padding:14px;
+padding:15px;
 
 font-size:16px;
 
@@ -347,21 +243,21 @@ font-size:16px;
 
 }
 
-/* ============================= */
-/* Small Mobile */
-/* ============================= */
+/* ===========================
+        SMALL MOBILE
+=========================== */
 
-@media(max-width:480px){
+@media (max-width:480px){
 
 .navbar{
 
-padding:15px;
+padding:12px;
 
 }
 
 .navbar-logo img{
 
-width:150px;
+width:150px !important;
 
 }
 
@@ -374,6 +270,8 @@ font-size:17px;
 .login-button{
 
 font-size:15px;
+
+padding:14px;
 
 }
 
